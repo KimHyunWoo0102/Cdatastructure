@@ -81,8 +81,28 @@ void InitDummyData() {
 	AppendList(20, "kimminjeong", "01056232262");
 }
 
-int deleteNode() {
+int deleteByName(const char*name) {
+	USERDATA* current = g_pHeadNode, *prev = g_pHeadNode;
 
+	if (!strcmp(g_pHeadNode->name, name)) {
+		g_pHeadNode = g_pHeadNode->pNext;
+		free(current);
+		return 1;
+	}
+
+	current = current->pNext;
+
+	while (current->pNext != NULL) {
+		if (!strcmp(current->name, name)) {
+			prev->pNext = current->pNext;
+			free(current);
+			return 1;
+		}
+		prev = current;
+		current = current->pNext;
+	}
+
+	return -1;
 }
 
 void ReleaseList(){
@@ -122,11 +142,8 @@ void run() {
 int main() {
 	InitDummyData();
 	PrintList();
-	SearchByName("kimhyunwoo");
-	SearchByName("kimsiwoo");
-	SearchByName("kimjiwoo");
-	SearchByName("kimminjeong");
-	SearchByName("Hong");
+	deleteByName("kimsiwoo");
+	PrintList();
 	ReleaseList();
 	puts("bye~");
 }
