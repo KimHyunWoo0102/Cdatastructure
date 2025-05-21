@@ -13,6 +13,7 @@ typedef struct _userdata {
 USERDATA* g_pHeadNode;
 
 typedef enum MY_MENU { EXIT, NEW, SEARCH, PRINT, REMOVE }MY_MENU;
+
 MY_MENU PrintMenu() {
 	MY_MENU input = 0;
 
@@ -38,6 +39,21 @@ void PrintList() {
 	}
 }
 
+USERDATA* SearchByName(const char* name) {
+	USERDATA* iter = g_pHeadNode;
+
+	while (iter != NULL)
+	{
+		if (!strcmp(iter->name, name)) {
+			printf("\"%s\": Found\n", name);
+			return iter;
+		}
+		iter = iter->pNext;
+	}
+	printf("\"%s\": Not Found\n", name);
+	return NULL;
+}
+
 void AppendList(int age, const char* name, const char* phone) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
 
@@ -57,6 +73,12 @@ void AppendList(int age, const char* name, const char* phone) {
 
 		iter->pNext = newNode;
 	}
+}
+void InitDummyData() {
+	AppendList(20, "kimhyunwoo", "01052557689");
+	AppendList(20, "kimsiwoo", "01052557689");
+	AppendList(20, "kimjiwoo", "01052557689");
+	AppendList(20, "kimminjeong", "01056232262");
 }
 
 int deleteNode() {
@@ -97,16 +119,14 @@ void run() {
 	}
 }
 
-void InitDummyData() {
-	AppendList(20, "kimhyunwoo", "01052557689");
-	AppendList(20, "kimsiwoo", "01052557689");
-	AppendList(20, "kimjiwoo", "01052557689");
-	AppendList(20, "kimminjeong", "01056232262");
-}
-
 int main() {
 	InitDummyData();
 	PrintList();
+	SearchByName("kimhyunwoo");
+	SearchByName("kimsiwoo");
+	SearchByName("kimjiwoo");
+	SearchByName("kimminjeong");
+	SearchByName("Hong");
 	ReleaseList();
 	puts("bye~");
 }
