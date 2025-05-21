@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include <stdlib.h>
 
 typedef struct _userdata {
 	int age;
@@ -7,24 +8,31 @@ typedef struct _userdata {
 	struct _userdata* pNext;
 }USERDATA;
 
+typedef enum MY_MENU { EXIT, NEW, SEARCH, PRINT, REMOVE }MY_MENU;
+MY_MENU PrintMenu() {
+	MY_MENU input = 0;
+
+	system("cls");
+	printf("[1]New\t[2]Search\t[3]Print\t[4]Remove\t[0]Exit\n:");
+	scanf_s("%d%*c", &input);
+	return input;
+}
 int main() {
-	USERDATA aList[4] = {
-		{20,"Tester01","010-1234-1111",NULL},
-		{21,"Tester02","010-1234-2222",NULL},
-		{22,"Tester03","010-1234-3333",NULL},
-		{22,"Tester04","010-1234-4444",NULL},
-	};
-
-	aList[0].pNext = &aList[1];
-	aList[1].pNext = &aList[2];
-	aList[2].pNext = &aList[3];
-
-	USERDATA* pUser = &aList[0];
-	while (pUser != NULL) {
-		printf("[%p] %d %s %s [%p]\n",
-			pUser,
-			pUser->age,pUser->name, pUser->phone, 
-			pUser->pNext);
-		pUser = pUser->pNext;
+	MY_MENU menu = 0;
+	while (menu = PrintMenu()) {
+		switch (menu) {
+		case NEW:
+			break;
+		case SEARCH:
+			break;
+		case PRINT:
+			break;
+		case REMOVE:
+			break;
+		default:
+			break;
+		}
 	}
+
+	puts("bye~");
 }
