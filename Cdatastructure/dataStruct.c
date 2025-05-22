@@ -26,19 +26,19 @@ MY_MENU PrintMenu() {
 	return input;
 }
 
-//void PrintList() {
-//	USERDATA* iter = g_HeadNode.pNext;
-//
-//	while (iter != &g_TailNode)
-//	{
-//		printf("[%p] %d %s %s [%p]\n",
-//			iter,
-//			iter->age, iter->name, iter->phone,
-//			iter->pNext);
-//		iter = iter->pNext;
-//	}
-//}
 void PrintList() {
+	USERDATA* iter = g_HeadNode.pNext;
+
+	while (iter != &g_TailNode)
+	{
+		printf("[%p] %d %s %s [%p]\n",
+			iter,
+			iter->age, iter->name, iter->phone,
+			iter->pNext);
+		iter = iter->pNext;
+	}
+}
+void PrintListReverse() {
 	USERDATA* iter = g_TailNode.pPrev;
 
 	while (iter != &g_HeadNode)
@@ -98,16 +98,12 @@ USERDATA* SearchToRemove(const char* name) {
 	return current;
 }
 
-int deleteByName(const char* name) {
-	USERDATA* target = NULL, * pPrev = NULL, * pNext;
-
-	target = SearchToRemove(name);
+void DeleteNode(USERDATA*target) {
+	USERDATA * pPrev = NULL, * pNext;
 	
 	if (target == NULL)
-	{
-		printf("deleteByName() : can't delete %s\n", name);
-		return -1;
-	}
+		return;
+	
 
 	pPrev = target->pPrev;
 	pNext = target->pNext;
@@ -119,7 +115,8 @@ int deleteByName(const char* name) {
 		target, target->age, target->name, target->phone, target->pNext);
 	target->pNext = NULL;
 	free(target);
-	return 1;
+
+	return;
 }
 
 void InitList() {
@@ -140,6 +137,7 @@ void ReleaseList() {
 			pDelete->pNext);
 
 		pDelete->pNext = NULL;
+		pDelete->pPrev = NULL;
 		free(pDelete);
 	}
 
@@ -183,7 +181,7 @@ void Test01() {
 	AppendList(20, "Lee", "010-1111-2222");
 	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
-	deleteByName("kim");
+	DeleteNode(SearchToRemove("kim"));
 	PrintList();
 	ReleaseList();
 	putchar('\n');
@@ -195,7 +193,7 @@ void Test02() {
 	AppendList(20, "Lee", "010-1111-2222");
 	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
-	deleteByName("Lee");
+	DeleteNode(SearchToRemove("Lee"));
 	AppendList(20, "Lee", "010-1111-2222");
 	ReleaseList();
 	putchar('\n');
@@ -206,7 +204,7 @@ void Test03() {
 	AppendList(20, "Lee", "010-1111-2222");
 	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
-	deleteByName("Hong");
+	DeleteNode(SearchToRemove("Hong"));
 	ReleaseList();
 	putchar('\n');
 }
