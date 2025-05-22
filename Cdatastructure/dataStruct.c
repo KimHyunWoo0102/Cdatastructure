@@ -29,7 +29,7 @@ MY_MENU PrintMenu() {
 void PrintList() {
 	USERDATA* iter = g_HeadNode.pNext;
 
-	while (iter != NULL)
+	while (iter != &g_TailNode)
 	{
 		printf("[%p] %d %s %s [%p]\n",
 			iter,
@@ -61,7 +61,7 @@ void AppendList(int age, const char* name, const char* phone) {
 USERDATA* SearchByName(const char* name) {
 	USERDATA* iter = g_HeadNode.pNext;
 
-	while (iter != NULL)
+	while (iter != &g_TailNode)
 	{
 		if (!strcmp(iter->name, name)) {
 			printf("\"%s\": Found\n", name);
@@ -72,6 +72,7 @@ USERDATA* SearchByName(const char* name) {
 	printf("\"%s\": Not Found\n", name);
 	return NULL;
 }
+
 USERDATA* SearchToRemove(const char* name) {
 	USERDATA* current = g_HeadNode.pNext;
 	USERDATA* pPrev = &g_HeadNode;
@@ -130,7 +131,7 @@ void ReleaseList() {
 		free(pDelete);
 	}
 
-	g_HeadNode.pNext = NULL;
+	InitList();
 }
 
 
