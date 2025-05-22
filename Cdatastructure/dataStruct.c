@@ -10,7 +10,8 @@ typedef struct _userdata {
 	struct _userdata* pNext;
 }USERDATA;
 
-USERDATA* g_pHeadNode;
+//USERDATA* g_pHeadNode;
+USERDATA g_HeadNode = { 0,"__DummyNode__","_DummyNode_",NULL };
 
 typedef enum MY_MENU { EXIT, NEW, SEARCH, PRINT, REMOVE }MY_MENU;
 
@@ -24,10 +25,7 @@ MY_MENU PrintMenu() {
 }
 
 void PrintList() {
-	if (g_pHeadNode == NULL)
-		return;
-
-	USERDATA* iter = g_pHeadNode;
+	USERDATA* iter = g_HeadNode.pNext;
 
 	while (iter != NULL)
 	{
@@ -40,7 +38,7 @@ void PrintList() {
 }
 
 USERDATA* SearchByName(const char* name) {
-	USERDATA* iter = g_pHeadNode;
+	USERDATA* iter = g_HeadNode.pNext;
 
 	while (iter != NULL)
 	{
@@ -53,6 +51,43 @@ USERDATA* SearchByName(const char* name) {
 	printf("\"%s\": Not Found\n", name);
 	return NULL;
 }
+USERDATA* SearchToRemove(const char* name) {
+	USERDATA* current = g_HeadNode.pNext;
+	USERDATA* pPrev = &g_HeadNode;
+
+
+	while (current != NULL) {
+		if (!strcmp(current->name, name)) {
+			return pPrev;
+		}
+		pPrev = current;
+		current = current->pNext;
+	}
+	printf("SearchToRemove() : not found %s\n", name);
+	return current;
+}
+
+int deleteByName(const char* name) {
+	USERDATA* current = NULL, * pPrev = NULL;
+
+	pPrev = SearchToRemove(name);
+	
+	if (pPrev == NULL)
+	{
+		printf("deleteByName() : can't delete %s\n", name);
+		return -1;
+	}
+
+	current = pPrev->pNext;
+	pPrev->pNext = current->pNext;
+
+	printf("Remove: [%p] %d %s %s [%p]\n",
+		current, current->age, current->name, current->phone, current->pNext);
+	current->pNext = NULL;
+	free(current);
+	return 1;
+}
+
 
 void AppendList(int age, const char* name, const char* phone) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
@@ -63,16 +98,12 @@ void AppendList(int age, const char* name, const char* phone) {
 	strcpy_s(newNode->phone, sizeof(newNode->phone), phone);
 	newNode->pNext = NULL;
 
-	if (g_pHeadNode == NULL)
-		g_pHeadNode = newNode;
-	else {
-		USERDATA* iter = g_pHeadNode;
-		while (iter->pNext != NULL) {
-			iter = iter->pNext;
-		}
-
-		iter->pNext = newNode;
+	USERDATA* iter = &g_HeadNode;
+	while (iter->pNext != NULL) {
+		iter = iter->pNext;
 	}
+
+	iter->pNext = newNode;
 }
 void InitDummyData() {
 	AppendList(20, "kimhyunwoo", "01052557689");
@@ -81,41 +112,23 @@ void InitDummyData() {
 	AppendList(20, "kimminjeong", "01056232262");
 }
 
-int deleteByName(const char*name) {
-	USERDATA* current = g_pHeadNode, *prev = g_pHeadNode;
-
-	if (!strcmp(g_pHeadNode->name, name)) {
-		g_pHeadNode = g_pHeadNode->pNext;
-		free(current);
-		return 1;
-	}
-
-	current = current->pNext;
-
-	while (current->pNext != NULL) {
-		if (!strcmp(current->name, name)) {
-			prev->pNext = current->pNext;
-			free(current);
-			return 1;
-		}
-		prev = current;
-		current = current->pNext;
-	}
-
-	return -1;
-}
-
 void ReleaseList(){
-	USERDATA* iter = g_pHeadNode;
-	while (iter != NULL) {
-		USERDATA* temp = iter;
-		iter = iter->pNext;
+	USERDATA* pTmp = g_HeadNode.pNext;
+	USERDATA* pDelete;
+
+	while (pTmp != NULL) {
+		pDelete = pTmp;
+		pTmp = pTmp->pNext;
 		printf("Delete: [%p] %d %s %s [%p]\n",
-			temp,
-			temp->age, temp->name, temp->phone,
-			temp->pNext);
-		free(temp);
+			pDelete,
+			pDelete->age, pDelete->name, pDelete->phone,
+			pDelete->pNext);
+
+		pDelete->pNext = NULL;
+		free(pDelete);
 	}
+
+	g_HeadNode.pNext = NULL;
 }
 
 void run() {
@@ -139,11 +152,42 @@ void run() {
 	}
 }
 
-int main() {
-	InitDummyData();
+
+void Test01() {
+	puts("Test01()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
-	deleteByName("kimsiwoo");
-	PrintList();
+	deleteByName("kim");
 	ReleaseList();
-	puts("bye~");
+	putchar('\n');
+}
+
+void Test02() {
+	puts("Test02()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
+	PrintList();
+	deleteByName("Lee");
+	AppendList(20, "Lee", "010-1111-2222");
+	ReleaseList();
+	putchar('\n');
+}
+void Test03() {
+	puts("Test03()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
+	PrintList();
+	deleteByName("Hong");
+	ReleaseList();
+	putchar('\n');
+}
+
+int main() {
+	Test01();
+	Test02();
+	Test03();
 }
