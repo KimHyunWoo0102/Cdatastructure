@@ -210,12 +210,11 @@ void Test03() {
 	putchar('\n');
 }
 // ==============================Stack==============================
-
 void Push(USERDATA* item) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
 
 
-	memcpy(newNode, item, sizeof(newNode));
+	memcpy(newNode, item, sizeof(USERDATA));
 
 	newNode->pNext = NULL;
 	newNode->pPrev = NULL;
@@ -229,9 +228,15 @@ void Push(USERDATA* item) {
 	pNextNode->pPrev = newNode;
 }
 
+void StackTest01() {
+	puts("StackTest01()=========================");
+	USERDATA tmp = { 10,"kim","010-5255-7689" };
+	Push(&tmp);
+	PrintList();
+}
+
+
 int main() {
 	InitList();
-	Test01();
-	Test02();
-	Test03();
+	StackTest01();
 }
