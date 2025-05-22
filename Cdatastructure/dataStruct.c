@@ -26,6 +26,7 @@ MY_MENU PrintMenu() {
 	return input;
 }
 
+//============================ LinkedList==================================
 void PrintList() {
 	USERDATA* iter = g_HeadNode.pNext;
 
@@ -207,6 +208,25 @@ void Test03() {
 	DeleteNode(SearchToRemove("Hong"));
 	ReleaseList();
 	putchar('\n');
+}
+// ==============================Stack==============================
+
+void Push(USERDATA* item) {
+	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
+
+
+	memcpy(newNode, item, sizeof(newNode));
+
+	newNode->pNext = NULL;
+	newNode->pPrev = NULL;
+
+	USERDATA* pNextNode = g_HeadNode.pNext;
+
+	newNode->pNext = pNextNode;
+	newNode->pPrev = &g_HeadNode;
+
+	g_HeadNode.pNext = newNode;
+	pNextNode->pPrev = newNode;
 }
 
 int main() {
