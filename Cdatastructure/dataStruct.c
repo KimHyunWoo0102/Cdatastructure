@@ -210,6 +210,9 @@ void Test03() {
 	putchar('\n');
 }
 // ==============================Stack==============================
+int isEmpty() {
+	return g_HeadNode.pNext == &g_TailNode;
+}
 void Push(USERDATA* item) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
 
@@ -228,10 +231,31 @@ void Push(USERDATA* item) {
 	pNextNode->pPrev = newNode;
 }
 
+USERDATA* Pop() {
+	if (isEmpty())
+		return NULL;
+
+	USERDATA* pPop = g_HeadNode.pNext;
+
+	g_HeadNode.pNext = pPop->pNext;
+	pPop->pNext->pPrev = &g_HeadNode;
+
+	printf("Pop: [%p] %d %s %s [%p]\n",
+		pPop,
+		pPop->age, pPop->name, pPop->phone,
+		pPop->pNext);
+
+	pPop->pNext = NULL;
+	pPop->pPrev = NULL;
+
+	return pPop;
+}
 void StackTest01() {
 	puts("StackTest01()=========================");
 	USERDATA tmp = { 10,"kim","010-5255-7689" };
 	Push(&tmp);
+	PrintList();
+	free(Pop());
 	PrintList();
 }
 
