@@ -26,19 +26,30 @@ MY_MENU PrintMenu() {
 	return input;
 }
 
+//void PrintList() {
+//	USERDATA* iter = g_HeadNode.pNext;
+//
+//	while (iter != &g_TailNode)
+//	{
+//		printf("[%p] %d %s %s [%p]\n",
+//			iter,
+//			iter->age, iter->name, iter->phone,
+//			iter->pNext);
+//		iter = iter->pNext;
+//	}
+//}
 void PrintList() {
-	USERDATA* iter = g_HeadNode.pNext;
+	USERDATA* iter = g_TailNode.pPrev;
 
-	while (iter != &g_TailNode)
+	while (iter != &g_HeadNode)
 	{
 		printf("[%p] %d %s %s [%p]\n",
 			iter,
 			iter->age, iter->name, iter->phone,
-			iter->pNext);
-		iter = iter->pNext;
+			iter->pPrev);
+		iter = iter->pPrev;
 	}
 }
-
 void AppendList(int age, const char* name, const char* phone) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
 
@@ -75,14 +86,12 @@ USERDATA* SearchByName(const char* name) {
 
 USERDATA* SearchToRemove(const char* name) {
 	USERDATA* current = g_HeadNode.pNext;
-	USERDATA* pPrev = &g_HeadNode;
 
 
 	while (current != &g_TailNode&&current!=NULL) {
 		if (!strcmp(current->name, name)) {
-			return pPrev;
+			return current;
 		}
-		pPrev = current;
 		current = current->pNext;
 	}
 	printf("SearchToRemove() : not found %s\n", name);
@@ -90,23 +99,26 @@ USERDATA* SearchToRemove(const char* name) {
 }
 
 int deleteByName(const char* name) {
-	USERDATA* current = NULL, * pPrev = NULL;
+	USERDATA* target = NULL, * pPrev = NULL, * pNext;
 
-	pPrev = SearchToRemove(name);
+	target = SearchToRemove(name);
 	
-	if (pPrev == NULL)
+	if (target == NULL)
 	{
 		printf("deleteByName() : can't delete %s\n", name);
 		return -1;
 	}
 
-	current = pPrev->pNext;
-	pPrev->pNext = current->pNext;
+	pPrev = target->pPrev;
+	pNext = target->pNext;
+
+	pPrev->pNext = pNext;
+	pNext->pPrev = pPrev;
 
 	printf("Remove: [%p] %d %s %s [%p]\n",
-		current, current->age, current->name, current->phone, current->pNext);
-	current->pNext = NULL;
-	free(current);
+		target, target->age, target->name, target->phone, target->pNext);
+	target->pNext = NULL;
+	free(target);
 	return 1;
 }
 
@@ -172,6 +184,7 @@ void Test01() {
 	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
 	deleteByName("kim");
+	PrintList();
 	ReleaseList();
 	putchar('\n');
 }
