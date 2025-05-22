@@ -53,6 +53,33 @@ USERDATA* SearchByName(const char* name) {
 	printf("\"%s\": Not Found\n", name);
 	return NULL;
 }
+USERDATA* SearchToRemove(USERDATA**ppPrev,const char* name) {
+	USERDATA* current = g_pHeadNode;
+	USERDATA* pPrev = NULL;
+
+	while (current->pNext != NULL) {
+		if (!strcmp(current->name, name)) {
+			*ppPrev = pPrev;
+			return current;
+		}
+		pPrev = current;
+		current = current->pNext;
+	}
+	return NULL;
+}
+
+int deleteByName(const char* name) {
+	USERDATA* current = NULL, * pPrev = NULL;
+
+	current = SearchToRemove(&pPrev, name);
+	
+	if (current == NULL)
+		return -1;
+
+	pPrev->pNext = current->pNext;
+	free(current);
+}
+
 
 void AppendList(int age, const char* name, const char* phone) {
 	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
@@ -79,30 +106,6 @@ void InitDummyData() {
 	AppendList(20, "kimsiwoo", "01052557689");
 	AppendList(20, "kimjiwoo", "01052557689");
 	AppendList(20, "kimminjeong", "01056232262");
-}
-
-int deleteByName(const char*name) {
-	USERDATA* current = g_pHeadNode, *prev = g_pHeadNode;
-
-	if (!strcmp(g_pHeadNode->name, name)) {
-		g_pHeadNode = g_pHeadNode->pNext;
-		free(current);
-		return 1;
-	}
-
-	current = current->pNext;
-
-	while (current->pNext != NULL) {
-		if (!strcmp(current->name, name)) {
-			prev->pNext = current->pNext;
-			free(current);
-			return 1;
-		}
-		prev = current;
-		current = current->pNext;
-	}
-
-	return -1;
 }
 
 void ReleaseList(){
