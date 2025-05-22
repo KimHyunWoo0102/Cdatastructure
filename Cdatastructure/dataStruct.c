@@ -57,6 +57,7 @@ USERDATA* SearchToRemove(USERDATA**ppPrev,const char* name) {
 	USERDATA* current = g_pHeadNode;
 	USERDATA* pPrev = NULL;
 
+
 	while (current->pNext != NULL) {
 		if (!strcmp(current->name, name)) {
 			*ppPrev = pPrev;
@@ -65,7 +66,7 @@ USERDATA* SearchToRemove(USERDATA**ppPrev,const char* name) {
 		pPrev = current;
 		current = current->pNext;
 	}
-	return NULL;
+	return g_pHeadNode;
 }
 
 int deleteByName(const char* name) {
@@ -73,11 +74,21 @@ int deleteByName(const char* name) {
 
 	current = SearchToRemove(&pPrev, name);
 	
-	if (current == NULL)
-		return -1;
+	if (pPrev == NULL) {
+		if (g_pHeadNode == NULL)
+			return -1;
+		else {
+			g_pHeadNode = g_pHeadNode->pNext;
+		}
+	}
+	else {
+		pPrev->pNext = current->pNext;
+	}
 
-	pPrev->pNext = current->pNext;
+	printf("Delete : [%p] %d %s %s [%p]\n",
+		current, current->age, current->name, current->phone, current->pNext);
 	free(current);
+	return 1;
 }
 
 
@@ -143,7 +154,7 @@ void run() {
 }
 
 int main() {
-	InitDummyData();
+	AppendList(20, "kimsiwoo", "01052557689");
 	PrintList();
 	deleteByName("kimsiwoo");
 	PrintList();
