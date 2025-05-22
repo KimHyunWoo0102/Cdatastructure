@@ -250,17 +250,50 @@ USERDATA* Pop() {
 
 	return pPop;
 }
-void StackTest01() {
-	puts("StackTest01()=========================");
-	USERDATA tmp = { 10,"kim","010-5255-7689" };
-	Push(&tmp);
-	PrintList();
-	free(Pop());
-	PrintList();
+
+USERDATA* Dequeue() {
+	return Pop();
 }
 
+void Enqueue(USERDATA* pUser) {
+	AppendList(pUser->age, pUser->name, pUser->phone);
+}
+
+void StackTest() {
+	puts("StackTest()=========================");
+	USERDATA tmp1 = { 10,"kim","010-5255-7689" };
+	USERDATA tmp2 = { 10,"Lee","010-5255-7689" };
+	USERDATA tmp3 = { 10,"Hong","010-5255-7689" };
+	Push(&tmp1);
+	Push(&tmp2);
+	Push(&tmp3);
+	PrintList();
+	free(Pop());
+	free(Pop());
+	free(Pop());
+
+	PrintList();
+	ReleaseList();
+}
+void QueueTest() {
+	puts("QueueTest()=========================");
+	USERDATA tmp1 = { 10,"kim","010-5255-7689" };
+	USERDATA tmp2 = { 10,"Lee","010-5255-7689" };
+	USERDATA tmp3 = { 10,"Hong","010-5255-7689" };
+	Enqueue(&tmp1);
+	Enqueue(&tmp2);
+	Enqueue(&tmp3);
+	PrintList();
+	free(Dequeue());
+	free(Dequeue());
+	free(Dequeue());
+
+	PrintList();
+	ReleaseList();
+}
 
 int main() {
 	InitList();
-	StackTest01();
+	StackTest();
+	QueueTest();
 }
