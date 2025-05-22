@@ -83,6 +83,7 @@ int deleteByName(const char* name) {
 	}
 	else {
 		pPrev->pNext = current->pNext;
+		current->pNext = NULL;
 	}
 
 	printf("Delete : [%p] %d %s %s [%p]\n",
@@ -130,6 +131,7 @@ void ReleaseList(){
 			temp->pNext);
 		free(temp);
 	}
+	g_pHeadNode = NULL;
 }
 
 void run() {
@@ -153,11 +155,42 @@ void run() {
 	}
 }
 
-int main() {
-	AppendList(20, "kimsiwoo", "01052557689");
+
+void Test01() {
+	puts("Test01()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
 	PrintList();
-	deleteByName("kimsiwoo");
-	PrintList();
+	deleteByName("kim");
 	ReleaseList();
-	puts("bye~");
+	putchar('\n');
+}
+
+void Test02() {
+	puts("Test02()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
+	PrintList();
+	deleteByName("Lee");
+	AppendList(20, "Lee", "010-1111-2222");
+	ReleaseList();
+	putchar('\n');
+}
+void Test03() {
+	puts("Test03()============================");
+	AppendList(20, "kim", "010-1111-1111");
+	AppendList(20, "Lee", "010-1111-2222");
+	AppendList(20, "Hong", "010-1111-3333");
+	PrintList();
+	deleteByName("Hong");
+	ReleaseList();
+	putchar('\n');
+}
+
+int main() {
+	Test01();
+	Test02();
+	Test03();
 }
