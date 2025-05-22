@@ -78,7 +78,7 @@ USERDATA* SearchToRemove(const char* name) {
 	USERDATA* pPrev = &g_HeadNode;
 
 
-	while (current != NULL) {
+	while (current != &g_TailNode&&current!=NULL) {
 		if (!strcmp(current->name, name)) {
 			return pPrev;
 		}
@@ -119,7 +119,7 @@ void ReleaseList() {
 	USERDATA* pTmp = g_HeadNode.pNext;
 	USERDATA* pDelete;
 
-	while (pTmp != NULL) {
+	while (pTmp != &g_TailNode && pTmp != NULL) {
 		pDelete = pTmp;
 		pTmp = pTmp->pNext;
 		printf("Delete: [%p] %d %s %s [%p]\n",
