@@ -8,10 +8,12 @@ typedef struct _userdata {
 	char name[32];
 	char phone[32];
 	struct _userdata* pNext;
+	struct _userdata* pPrev;
 }USERDATA;
 
 //USERDATA* g_pHeadNode;
-USERDATA g_HeadNode = { 0,"__DummyNode__","_DummyNode_",NULL };
+USERDATA g_HeadNode = { 0,"__DummyHead__" };
+USERDATA g_TailNode = { 0,"__DummyTail__" };
 
 typedef enum MY_MENU { EXIT, NEW, SEARCH, PRINT, REMOVE }MY_MENU;
 
@@ -35,6 +37,25 @@ void PrintList() {
 			iter->pNext);
 		iter = iter->pNext;
 	}
+}
+
+void AppendList(int age, const char* name, const char* phone) {
+	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
+
+
+	newNode->age = age;
+	strcpy_s(newNode->name, sizeof(newNode->name), name);
+	strcpy_s(newNode->phone, sizeof(newNode->phone), phone);
+	newNode->pNext = NULL;
+	newNode->pPrev = NULL;
+
+	
+	
+	newNode->pNext =&g_TailNode;
+	newNode->pPrev = g_TailNode.pPrev;
+
+	g_TailNode.pPrev->pNext = newNode;
+	g_TailNode.pPrev = newNode;
 }
 
 USERDATA* SearchByName(const char* name) {
@@ -88,31 +109,12 @@ int deleteByName(const char* name) {
 	return 1;
 }
 
-
-void AppendList(int age, const char* name, const char* phone) {
-	USERDATA* newNode = (USERDATA*)malloc(sizeof(USERDATA));
-
-	
-	newNode->age = age;
-	strcpy_s(newNode->name, sizeof(newNode->name), name);
-	strcpy_s(newNode->phone, sizeof(newNode->phone), phone);
-	newNode->pNext = NULL;
-
-	USERDATA* iter = &g_HeadNode;
-	while (iter->pNext != NULL) {
-		iter = iter->pNext;
-	}
-
-	iter->pNext = newNode;
-}
-void InitDummyData() {
-	AppendList(20, "kimhyunwoo", "01052557689");
-	AppendList(20, "kimsiwoo", "01052557689");
-	AppendList(20, "kimjiwoo", "01052557689");
-	AppendList(20, "kimminjeong", "01056232262");
+void InitList() {
+	g_HeadNode.pNext = &g_TailNode;
+	g_TailNode.pPrev = &g_HeadNode;
 }
 
-void ReleaseList(){
+void ReleaseList() {
 	USERDATA* pTmp = g_HeadNode.pNext;
 	USERDATA* pDelete;
 
@@ -130,6 +132,15 @@ void ReleaseList(){
 
 	g_HeadNode.pNext = NULL;
 }
+
+
+void InitDummyData() {
+	AppendList(20, "kimhyunwoo", "01052557689");
+	AppendList(20, "kimsiwoo", "01052557689");
+	AppendList(20, "kimjiwoo", "01052557689");
+	AppendList(20, "kimminjeong", "01056232262");
+}
+
 
 void run() {
 	MY_MENU menu = 0;
@@ -187,6 +198,7 @@ void Test03() {
 }
 
 int main() {
+	InitList();
 	Test01();
 	Test02();
 	Test03();
