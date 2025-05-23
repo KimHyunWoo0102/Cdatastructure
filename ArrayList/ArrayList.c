@@ -34,14 +34,13 @@ void LInsert(List* plist, LData data)
 
 int LFirst(List* plist, LData* pdata)
 {
-	plist->curPosition = -1;
 	if (isEmpty(plist))
 	{
 		printf("Error : empty list\n");
 		return FALSE;
 	}
 
-	plist->curPosition++;
+	plist->curPosition = 0;
 	*pdata = plist->arr[plist->curPosition];
 	
 	return TRUE;
@@ -49,7 +48,7 @@ int LFirst(List* plist, LData* pdata)
 
 int LNext(List* plist, LData* pdata)
 {
-	if (plist->numOfData - 1 == plist->curPosition) {
+	if (plist->numOfData - 1 <= plist->curPosition) {
 		return FALSE;
 	}
 
@@ -63,10 +62,12 @@ LData LRemove(List* plist)
 	if (isEmpty(plist)) {
 		printf("Remove : empty list exception. can't remove data.\n");
 	}
+	
+	int rpos = plist->curPosition;
+	int num = plist->numOfData-1;
+	LData remove = plist->arr[rpos];
 
-	LData remove = plist->arr[plist->curPosition];
-
-	for (int i = plist->curPosition; i < plist->numOfData - 1; i++)
+	for (int i = rpos; i < num; i++)
 		plist->arr[i] = plist->arr[i + 1];
 	
 	plist->numOfData--;
