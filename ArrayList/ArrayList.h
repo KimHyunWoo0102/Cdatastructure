@@ -2,7 +2,7 @@
 
 #define FALSE 0
 #define TRUE 1
-#define MAX_SIZE 4
+#define MAX_SIZE 100
 
 typedef int LData;
 
@@ -26,4 +26,5 @@ void LInsert(List* plist, LData data);
 int LFirst(List* plist, LData* pdata);
 int LNext(List* plist, LData* pdata);
 LData LRemove(List* plist);//직전 참조한 데이터 삭제
+void PrintList(List* plist);
 int LCount(List* plist);

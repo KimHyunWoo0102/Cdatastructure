@@ -7,29 +7,32 @@ int main() {
 	List list;
 	ListInit(&list);
 
-	LInsert(&list, 11);
-	LInsert(&list, 22);
-	LInsert(&list, 33);
-	LInsert(&list, 44);
+	for (int i = 0; i < 10; i++)
+		LInsert(&list, i);
 	//LInsert(&list, 55);
 	
-
+	int sum = 0;
 	if (LFirst(&list, &data)) {
-		printf("%d\n", data);
+		sum += data;
 
 		while (LNext(&list, &data))
-			printf("%d\n", data);
+			sum += data;
 	}
 
-	/*if (LFirst(&list, &data)) {
-		if (data == 22)
+	PrintList(&list);
+
+	printf("sum = %d\n", sum);
+	if (LFirst(&list, &data)) {
+		if (data % 2 == 0 || data % 3 == 0)
 			LRemove(&list);
 
 		while (LNext(&list, &data)) {
-			if (data == 22)
+			if (data % 2 == 0 || data % 3 == 0)
 				LRemove(&list);
 		}
-	}*/
+	}
+
+	PrintList(&list);
 
 	return 0;
 }
