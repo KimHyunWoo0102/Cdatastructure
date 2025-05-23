@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="NameCard.h" />
     <ClInclude Include="Point.h" />
   </ItemGroup>
   <ItemGroup>

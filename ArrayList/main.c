@@ -38,54 +38,58 @@
 // 
 //}
 // main에서는 이 역할 고정으로 사용
+//void TestPointArrayList(){
+//	Point* ppos, compPos;
+//	List list;
+//
+//	ListInit(&list);
+//
+//	ppos = (Point*)malloc(sizeof(Point));
+//	SetPointPos(ppos, 2, 1);
+//	LInsert(&list, ppos);
+//
+//	ppos = (Point*)malloc(sizeof(Point));
+//	SetPointPos(ppos, 2, 2);
+//	LInsert(&list, ppos);
+//
+//	ppos = (Point*)malloc(sizeof(Point));
+//	SetPointPos(ppos, 3, 1);
+//	LInsert(&list, ppos);
+//
+//	ppos = (Point*)malloc(sizeof(Point));
+//	SetPointPos(ppos, 3, 2);
+//	LInsert(&list, ppos);
+//
+//	printf("현재 데이터의 수 : %d \n", LCount(&list));
+//
+//	if (LFirst(&list, &ppos)) {
+//		ShowPointPos(ppos);
+//
+//		while (LNext(&list, &ppos))
+//			ShowPointPos(ppos);
+//	}
+//
+//	if (LFirst(&list, &ppos)) {
+//		ppos = LRemove(&list);
+//		free(ppos);
+//
+//		while (LNext(&list, &ppos))
+//		{
+//			ppos = LRemove(&list);
+//			free(ppos);
+//		}
+//	}
+//
+//	if (LFirst(&list, &ppos)) {
+//		ShowPointPos(ppos);
+//
+//		while (LNext(&list, &ppos))
+//			ShowPointPos(ppos);
+//	}
+//}
+
 int main() {
-	Point* ppos, compPos;
-	List list;
-	
-	ListInit(&list);
-
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 2, 1);
-	LInsert(&list, ppos);
-
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 2, 2);
-	LInsert(&list, ppos);
-
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 3, 1);
-	LInsert(&list, ppos);
-	
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 3, 2);
-	LInsert(&list, ppos);
-
-	printf("현재 데이터의 수 : %d \n", LCount(&list));
-
-	if (LFirst(&list, &ppos)) {
-		ShowPointPos(ppos);
-
-		while (LNext(&list, &ppos))
-			ShowPointPos(ppos);
-	}
-
-	if (LFirst(&list, &ppos)) {
-		ppos = LRemove(&list);
-		free(ppos);
-
-		while (LNext(&list, &ppos))
-		{
-			ppos = LRemove(&list);
-			free(ppos);
-		}
-	}
-
-	if (LFirst(&list, &ppos)) {
-		ShowPointPos(ppos);
-
-		while (LNext(&list, &ppos))
-			ShowPointPos(ppos);
-	}
+		
 
 	return 0;
 }
