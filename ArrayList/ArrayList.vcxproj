@@ -24,7 +24,7 @@
     <ProjectGuid>{2a060a64-e616-450f-9135-63ce71a4992f}</ProjectGuid>
     <RootNamespace>ArrayList</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>List</ProjectName>
+    <ProjectName>ArrayList</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -129,10 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="point.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="point.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
