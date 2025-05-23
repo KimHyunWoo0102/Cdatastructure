@@ -9,7 +9,7 @@ void SetPointPos(Point* ppos, int xpos, int ypos)
 
 void ShowPointPos(Point* ppos)
 {
-	printf("(%d,%d)", ppos->xpos, ppos->ypos);
+	printf("(%d,%d)\n", ppos->xpos, ppos->ypos);
 }
 
 int PointCmp(Point* pos1, Point* pos2)
