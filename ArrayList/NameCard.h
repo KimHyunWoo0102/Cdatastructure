@@ -11,4 +11,4 @@ typedef struct _namecard {
 NameCard* MakeNameCard(const char* name,const char* phone);
 void ShowNameCardInfo(const NameCard* pcard);
 int NameCompare(NameCard* pcard, const char* name);
-void ChangePoineNum(NameCard* pcard, const char* phone);
+void ChangePhoneNum(NameCard* pcard, const char* phone);
