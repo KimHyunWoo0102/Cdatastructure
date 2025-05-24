@@ -89,7 +89,68 @@
 //}
 
 int main() {
-		
+	NameCard* ppos;
+	List list;
 
+	ListInit(&list);
+
+	ppos = MakeNameCard("kim", "010-1111-1111");
+	LInsert(&list, ppos);
+	ppos = MakeNameCard("hong", "010-2222-2222");
+	LInsert(&list, ppos);
+	ppos = MakeNameCard("lee", "010-3333-3333");
+	LInsert(&list, ppos);
+
+	if (LFirst(&list, &ppos)) {
+		if (!NameCompare(ppos->name, "kim"))
+			ShowNameCardInfo(ppos);
+		while (LNext(&list, &ppos)) {
+			if (!NameCompare(ppos->name, "kim"))
+				ShowNameCardInfo(ppos);
+		}
+	}
+	putchar('\n');
+	if (LFirst(&list, &ppos)) {
+		if (!NameCompare(ppos->name, "kim"))
+			ChangePhoneNum(ppos, "010-3333-1112");
+
+		while (LNext(&list, &ppos)) {
+			if (!NameCompare(ppos->name, "kim"))
+				ChangePhoneNum(ppos, "010-3333-1112");
+		}
+	}
+
+	if (LFirst(&list, &ppos)) {
+		if (!NameCompare(ppos->name, "lee"))
+		{
+			ppos=LRemove(&list);
+			free(ppos);
+		}
+		while (LNext(&list, &ppos)) {
+			if (!NameCompare(ppos->name, "lee"))
+			{
+				ppos=LRemove(&list);
+				free(ppos);
+			}
+		}
+	}
+
+	if (LFirst(&list, &ppos)) {
+		ShowNameCardInfo(ppos);
+
+		while (LNext(&list, &ppos)) {
+			ShowNameCardInfo(ppos);
+		}
+	}
+
+	if (LFirst(&list, &ppos)) {
+		ppos = LRemove(&list);
+		free(ppos);
+
+		while (LNext(&list, &ppos)) {
+			ppos = LRemove(&list);
+			free(ppos);
+		}
+	}
 	return 0;
 }

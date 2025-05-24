@@ -20,5 +20,6 @@
     <ClCompile Include="ArrayList.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Point.c" />
+    <ClCompile Include="NameCard.c" />
   </ItemGroup>
 </Project>
