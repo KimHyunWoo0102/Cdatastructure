@@ -24,17 +24,17 @@ void FInsert(List* plist, LData data) {
 }
 
 void SInsert(List* plist, LData data) {
-	//앞에 있어야 하면 Comp가 True 뒤에 있어야하며ㅑㄴ FALSE로 구성해서
-	//TRUE가 나올때까지 비교
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
+	Node* pred = plist->head;
 
-	//head dummy노드 부터 시작하기
-	//dummy만 있다면 그냥 넣고
-	//데이터가 하나라도 있다면 값 비교해서 True면 한칸 뒤로 밀고
-	//False면 그자리에 저장
-	int compData = 0;
-	if (LFirst(plist, &compData)) {
+	while (pred->next != NULL && plist->comp(data, pred->next->data) != 0)
+		pred = pred->next;
 
-	}
+	newNode->next = pred->next;
+	pred->next = newNode;
+
+	plist->numOfData++;
 }
 
 void LInsert(List* plist, LData data) {
