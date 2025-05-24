@@ -9,9 +9,13 @@
     <ClInclude Include="CLinkedList.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="employeeInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CLinkedList.c" />
     <ClCompile Include="CLinkedListMain.c" />
+    <ClCompile Include="employeeInfo.c" />
   </ItemGroup>
 </Project>
