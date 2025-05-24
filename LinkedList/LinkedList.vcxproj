@@ -123,9 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\ArrayList\Point.h" />
     <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\ArrayList\Point.c" />
     <ClCompile Include="LinkedList.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>

@@ -9,10 +9,10 @@
     <ClInclude Include="ArrayList.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Point.h">
+    <ClInclude Include="NameCard.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="NameCard.h">
+    <ClInclude Include="Point.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

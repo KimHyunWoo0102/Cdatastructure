@@ -9,9 +9,13 @@
     <ClInclude Include="LinkedList.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\ArrayList\Point.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LinkedList.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="..\ArrayList\Point.c" />
   </ItemGroup>
 </Project>
