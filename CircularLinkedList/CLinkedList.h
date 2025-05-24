@@ -15,14 +15,14 @@ typedef struct _node {
 	struct _node* next;
 }Node;
 
-typedef struct _linkedList {
+typedef struct _clinkedList {
 	Node* tail;
 	Node* cur;
 	Node* prev;
 	int numOfData;
-}LinkedList;
+}CLL;
 
-typedef LinkedList List;
+typedef CLL List;
 
 int isEmpty(List* plist);
 
