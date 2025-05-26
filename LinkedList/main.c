@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include"LinkedList.h"
+#include"polynomial.h"
 
 int WhoIsPrecede(int d1, int d2) {
 	return d1 < d2;
@@ -15,35 +16,53 @@ int PointPrecede(Point* p1, Point* p2) {
 }
 
 int main() {
-	Point* ppos;
-	List list;
+	Poly* ppos;
+	List a, b;
 
-	ListInit(&list);
-	SetSortRule(&list, PointPrecede);
-
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 3, 1);
-	LInsert(&list, ppos);
+	ListInit(&a);
+	SetSortRule(&a, PointPrecede);
 
 	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 1, 2);
-	LInsert(&list, ppos);
+	SetPoly(ppos, 3, 4);
+	LInsert(&a, ppos);
 
 	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 2, 1);
-	LInsert(&list, ppos);
+	SetPoly(ppos,8,1);
+	LInsert(&a, ppos);
 
-	ppos = (Point*)malloc(sizeof(Point));
-	SetPointPos(ppos, 2, 3);
-	LInsert(&list, ppos);
-	
-	printf("데이터의 개수 %d\n", LCount(&list));
+	printf("데이터의 개수 %d\n", LCount(&a));
 
-	if (LFirst(&list, &ppos)) {
-		ShowPointPos(ppos);
+	if (LFirst(&a, &ppos)) {
+		ShowPoly(ppos);
 
-		while (LNext(&list, &ppos))
-			ShowPointPos(ppos);
+		while (LNext(&a, &ppos))
+			ShowPoly(ppos);
 	}
+	putchar('\n');
+	ListInit(&b);
+	SetSortRule(&b, PointPrecede);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPoly(ppos, 11, 3);
+	LInsert(&b, ppos);
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPoly(ppos, -8, 1);
+	LInsert(&b, ppos);
+
+
+	ppos = (Point*)malloc(sizeof(Point));
+	SetPoly(ppos, 4, 0);
+	LInsert(&b, ppos);
+
+	printf("데이터의 개수 %d\n", LCount(&b));
+
+	if (LFirst(&b, &ppos)) {
+		ShowPoly(ppos);
+
+		while (LNext(&b, &ppos))
+			ShowPoly(ppos);
+	}
+
 	return 0;
 }

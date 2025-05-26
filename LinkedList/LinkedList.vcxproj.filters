@@ -12,10 +12,14 @@
     <ClInclude Include="..\ArrayList\Point.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="polynomial.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LinkedList.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="..\ArrayList\Point.c" />
+    <ClCompile Include="polynomial.c" />
   </ItemGroup>
 </Project>
