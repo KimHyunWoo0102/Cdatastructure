@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularLinkedList", "Circu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.vcxproj", "{CB1F04DC-0283-42F1-85AE-E19957C6F253}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CouMon", "CouMon\CouMon.vcxproj", "{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{CB1F04DC-0283-42F1-85AE-E19957C6F253}.Release|x64.Build.0 = Release|x64
 		{CB1F04DC-0283-42F1-85AE-E19957C6F253}.Release|x86.ActiveCfg = Release|Win32
 		{CB1F04DC-0283-42F1-85AE-E19957C6F253}.Release|x86.Build.0 = Release|Win32
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Debug|x64.ActiveCfg = Debug|x64
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Debug|x64.Build.0 = Debug|x64
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Debug|x86.ActiveCfg = Debug|Win32
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Debug|x86.Build.0 = Debug|Win32
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Release|x64.ActiveCfg = Release|x64
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Release|x64.Build.0 = Release|x64
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Release|x86.ActiveCfg = Release|Win32
+		{0F9BE132-2E3D-4F61-9F43-00F1AF41A3EC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
