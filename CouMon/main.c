@@ -1,17 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS 
+
 #include<stdio.h>
+
 #define TRUE 1
 #define FALSE 0
 
 int main() {
-	char op;
-	int isRun = TRUE;
+	char op, g;
+	int isRun = TRUE, e;
 
 	while (isRun) {
-		scanf_s("%c%*c", &op,sizeof(op));
+		scanf(" %c", &op);
 
 		switch (op) {
 		case 'a':
-			printf("addShare!\n");
+			scanf("%d %c", &e, &g);
+			printf("addShare! e = %d, g = %c\n", e, g);
 			break;
 		case 'r':
 			printf("removeShare!\n");
