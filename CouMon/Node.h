@@ -1,5 +1,4 @@
 #pragma once
-#include<stdio.h>
 
 typedef int Element;
 typedef char Group;
