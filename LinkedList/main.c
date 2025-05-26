@@ -15,13 +15,102 @@ int PointPrecede(Point* p1, Point* p2) {
 	return 1;
 }
 
+void AddPoly(List* ret,List* a, List* b) {
+	Node* aIter, *bIter;
+	Poly* ppos;
+
+	aIter = a->head->next;
+	bIter = b->head->next;
+
+	while ((aIter!=NULL) && (bIter!=NULL)) {
+		if (aIter->data->exp > bIter->data->exp)
+		{
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, aIter->data->coef, aIter->data->exp);
+			LInsert(ret, ppos);
+			aIter = aIter->next;
+		}
+		else if (aIter->data->exp == bIter->data->exp) {
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, aIter->data->coef + bIter->data->coef, aIter->data->exp);
+			LInsert(ret, ppos);
+			aIter = aIter->next;
+			bIter = bIter->next;
+		}
+		else {
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, bIter->data->coef, bIter->data->exp);
+			LInsert(ret, ppos);
+			bIter = bIter->next;
+		}
+	}
+
+	while (aIter != NULL) {
+		ppos = (Poly*)malloc(sizeof(Poly));
+		SetPoly(ppos, aIter->data->coef, aIter->data->exp);
+		LInsert(ret, ppos);
+		aIter = aIter->next;
+	}
+
+	while (bIter != NULL) {
+		ppos = (Poly*)malloc(sizeof(Poly));
+		SetPoly(ppos, bIter->data->coef, bIter->data->exp);
+		LInsert(ret, ppos);
+		bIter = bIter->next;
+	}
+
+}
+void SubPoly(List* ret, List* a, List* b) {
+	Node* aIter, * bIter;
+	Poly* ppos;
+
+	aIter = a->head->next;
+	bIter = b->head->next;
+
+	while ((aIter != NULL) && (bIter != NULL)) {
+		if (aIter->data->exp > bIter->data->exp)
+		{
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, aIter->data->coef, aIter->data->exp);
+			LInsert(ret, ppos);
+			aIter = aIter->next;
+		}
+		else if (aIter->data->exp == bIter->data->exp) {
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, aIter->data->coef - bIter->data->coef, aIter->data->exp);
+			LInsert(ret, ppos);
+			aIter = aIter->next;
+			bIter = bIter->next;
+		}
+		else {
+			ppos = (Poly*)malloc(sizeof(Poly));
+			SetPoly(ppos, -bIter->data->coef, bIter->data->exp);
+			LInsert(ret, ppos);
+			bIter = bIter->next;
+		}
+	}
+
+	while (aIter != NULL) {
+		ppos = (Poly*)malloc(sizeof(Poly));
+		SetPoly(ppos, aIter->data->coef, aIter->data->exp);
+		LInsert(ret, ppos);
+		aIter = aIter->next;
+	}
+
+	while (bIter != NULL) {
+		ppos = (Poly*)malloc(sizeof(Poly));
+		SetPoly(ppos, -bIter->data->coef, bIter->data->exp);
+		LInsert(ret, ppos);
+		bIter = bIter->next;
+	}
+
+}
 int main() {
 	Poly* ppos;
-	List a, b;
+	List a, b, c;
 
 	ListInit(&a);
-	SetSortRule(&a, PointPrecede);
-
+	SetSortRule(&a, PolyCmp);
 	ppos = (Point*)malloc(sizeof(Point));
 	SetPoly(ppos, 3, 4);
 	LInsert(&a, ppos);
@@ -39,8 +128,9 @@ int main() {
 			ShowPoly(ppos);
 	}
 	putchar('\n');
+
 	ListInit(&b);
-	SetSortRule(&b, PointPrecede);
+	SetSortRule(&b, PolyCmp);
 
 	ppos = (Point*)malloc(sizeof(Point));
 	SetPoly(ppos, 11, 3);
@@ -63,6 +153,56 @@ int main() {
 		while (LNext(&b, &ppos))
 			ShowPoly(ppos);
 	}
+	putchar('\n');
+	ListInit(&c);
+	SetSortRule(&c, PolyCmp);
+	AddPoly(&c, &a, &b);
+	if (LFirst(&c, &ppos)) {
+		ShowPoly(ppos);
 
+		while (LNext(&c, &ppos))
+			ShowPoly(ppos);
+	}
+	if (LFirst(&c, &ppos)) {
+		LRemove(&c);
+
+		while (LNext(&c, &ppos))
+			LRemove(&c);
+	}
+	putchar('\n');
+	ListInit(&c);
+	SetSortRule(&c, PolyCmp);
+	SubPoly(&c, &a, &b);
+	if (LFirst(&c, &ppos)) {
+		ShowPoly(ppos);
+
+		while (LNext(&c, &ppos))
+			ShowPoly(ppos);
+	}
+	if (LFirst(&c, &ppos)) {
+		LRemove(&c);
+
+		while (LNext(&c, &ppos))
+			LRemove(&c);
+	}
+	if (LFirst(&a, &ppos)) {
+		LRemove(&a);
+
+		while (LNext(&a, &ppos))
+			LRemove(&a);
+	}
+
+	if (LFirst(&b, &ppos)) {
+		LRemove(&b);
+
+		while (LNext(&b, &ppos))
+			LRemove(&b);
+	}
+	if (LFirst(&c, &ppos)) {
+		LRemove(&c);
+
+		while (LNext(&c, &ppos))
+			LRemove(&c);
+	}
 	return 0;
 }
