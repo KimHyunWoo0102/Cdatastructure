@@ -9,9 +9,17 @@
     <ClInclude Include="ListStack.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="CircularStack.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\List\CircularLinkedList\CLinkedList.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ListStack.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="CircularStack.c" />
+    <ClCompile Include="..\..\List\CircularLinkedList\CLinkedList.c" />
   </ItemGroup>
 </Project>

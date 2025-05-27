@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include"ListStack.h"
 
+#include "CircularStack.h"
 int main() {
 	Stack stack;
 	StackInit(&stack);

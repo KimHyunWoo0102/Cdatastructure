@@ -123,11 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="employeeInfo.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CLinkedList.c" />
     <ClCompile Include="CLinkedListMain.c" />
     <ClCompile Include="employeeInfo.c" />
   </ItemGroup>

@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedList", "List\LinkedLi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArrayStack", "Stack\ArrayStack\ArrayStack.vcxproj", "{EB56DD1C-E2C9-424D-8721-3C889B69E6C3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedStack", "LinkedStack\LinkedStack.vcxproj", "{46F9A956-548D-4521-9BAC-EFC640C2E02A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedStack", "Stack\LinkedStack\LinkedStack.vcxproj", "{46F9A956-548D-4521-9BAC-EFC640C2E02A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

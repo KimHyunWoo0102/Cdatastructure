@@ -1,8 +1,7 @@
 #pragma once
-#include "../../List/CircularLinkedList/CLinkedList.h"
-
+#include "../../List/CircularLinkedList/CLinkedList.h" 
 typedef struct _circularStack {
-
+	List list;
 }CircularStack;
 
 typedef CircularStack Stack;

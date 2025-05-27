@@ -123,9 +123,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\List\CircularLinkedList\CLinkedList.h" />
+    <ClInclude Include="CircularStack.h" />
     <ClInclude Include="ListStack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\List\CircularLinkedList\CLinkedList.c" />
+    <ClCompile Include="CircularStack.c" />
     <ClCompile Include="ListStack.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>

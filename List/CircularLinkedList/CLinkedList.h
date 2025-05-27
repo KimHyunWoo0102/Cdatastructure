@@ -5,7 +5,7 @@
 #define TRUE 1
 #define MAX_SIZE 100
 
-typedef EmployeeInfo* LData;
+typedef int LData;
 
 //List가 호환되었으면함.
 //main에서는 List 만 가지고 연산을 진행한다.
