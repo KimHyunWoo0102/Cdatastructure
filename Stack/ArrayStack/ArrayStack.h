@@ -16,6 +16,6 @@ typedef ArrayStack Stack;
 void StackInit(Stack* pstack);
 int SIsEmpty(Stack* pstack);
 
-void SPush(Stack* pstack);
+void SPush(Stack* pstack,Data data);
 Data SPop(Stack* pstack);
 Data SPeek(Stack* pstack);
