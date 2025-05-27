@@ -12,7 +12,7 @@ int SIsEmpty(Stack* pstack)
 
 void SPush(Stack* pstack,Data data)
 {
-	if (pstack->topIndex + 1 <= STACK_LEN)
+	if (pstack->topIndex + 1 >= STACK_LEN)
 		return;
 
 	pstack->topIndex++;
