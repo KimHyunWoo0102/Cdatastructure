@@ -6,8 +6,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="calculator.h">
+    <ClInclude Include="InfixToPostfix.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\LinkedStack\ListStack.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="StackCalculator.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="InfixToPostfix.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="..\LinkedStack\ListStack.c" />
+    <ClCompile Include="StackCalculator.c" />
   </ItemGroup>
 </Project>

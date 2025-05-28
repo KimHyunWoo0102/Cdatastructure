@@ -38,10 +38,11 @@ int WhoPrecOp(char op1, char op2)
 void ConvToRPNExp(char exp[])
 {
     Stack stack;
+    StackInit(&stack);
     int len = strlen(exp), idx = 0;
     char* retExp = (char*)malloc(len + 1);
 
-    memset(retExp, 0, sizeof(retExp));
+    memset(retExp, 0, len + 1);
 
     for (int i = 0; i < len; i++) {
         char tok = exp[i];
@@ -65,6 +66,7 @@ void ConvToRPNExp(char exp[])
                     retExp[idx] = popOp;
                     idx++;
                 }
+                break;
             case '+':case'-':
             case'*':case'/':
                 while (!SIsEmpty(&stack) && WhoPrecOp(SPeek(&stack), tok) >= 0)
@@ -83,6 +85,6 @@ void ConvToRPNExp(char exp[])
         idx++;
     }
 
-    strcpy(exp, retExp);
+    strcpy_s(exp,len+1, retExp);
     free(retExp);
 }

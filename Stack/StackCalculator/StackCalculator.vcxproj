@@ -123,7 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="calculator.h" />
+    <ClInclude Include="..\LinkedStack\ListStack.h" />
+    <ClInclude Include="InfixToPostfix.h" />
+    <ClInclude Include="StackCalculator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\LinkedStack\ListStack.c" />
+    <ClCompile Include="InfixToPostfix.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="StackCalculator.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
