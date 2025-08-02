@@ -10,3 +10,42 @@ int QIsEmpty(Queue* pq)
 {
 	return pq->front == pq->rear ? TRUE : FALSE;
 }
+
+int NextPosIdx(int pos)
+{
+	if (pos == QUE_LEN - 1)
+		return 0;
+	return pos + 1;
+}
+
+void Enqueue(Queue* pq, Data data)
+{
+	if (pq->front == NextPosIdx(pq->rear)) {
+		printf("Queue Memory Error!");
+		exit(-1);
+	}
+
+	pq->rear = NextPosIdx(pq->rear);
+	pq->queArr[pq->rear] = data;
+}
+
+Data Dequeue(Queue* pq)
+{
+	if (QIsEmpty(pq)) {
+		printf("Empty Queue Error!");
+		exit(-1);
+	}
+
+	pq->front = NextPosIdx(pq->front);
+	return pq->queArr[pq->front];
+}
+
+Data QPeek(Queue* pq)
+{
+	if (QIsEmpty(pq)) {
+		printf("Empty Queue Error!");
+		exit(-1);
+	}
+
+	return pq->queArr[NextPosIdx(pq->front)];
+}

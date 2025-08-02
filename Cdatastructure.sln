@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedStack", "Stack\Linked
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StackCalculator", "Stack\StackCalculator\StackCalculator.vcxproj", "{375D30CD-F752-4E61-8B5B-C91BF25317D3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircularQueue", "Queue\CircularQueue\CircularQueue.vcxproj", "{F382F630-B9C9-40B8-B428-62E4DAA73A0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -101,6 +103,14 @@ Global
 		{375D30CD-F752-4E61-8B5B-C91BF25317D3}.Release|x64.Build.0 = Release|x64
 		{375D30CD-F752-4E61-8B5B-C91BF25317D3}.Release|x86.ActiveCfg = Release|Win32
 		{375D30CD-F752-4E61-8B5B-C91BF25317D3}.Release|x86.Build.0 = Release|Win32
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Debug|x64.ActiveCfg = Debug|x64
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Debug|x64.Build.0 = Debug|x64
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Debug|x86.Build.0 = Debug|Win32
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Release|x64.ActiveCfg = Release|x64
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Release|x64.Build.0 = Release|x64
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Release|x86.ActiveCfg = Release|Win32
+		{F382F630-B9C9-40B8-B428-62E4DAA73A0B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

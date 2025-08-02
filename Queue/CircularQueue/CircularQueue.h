@@ -15,7 +15,9 @@ typedef struct _circularQueue {
 typedef CircularQueue Queue;
 
 void QueueInit(Queue* pq);
+
 int QIsEmpty(Queue* pq);
+int NextPosIdx(int pos);
 
 void Enqueue(Queue* pq, Data data);
 Data Dequeue(Queue* pq);
