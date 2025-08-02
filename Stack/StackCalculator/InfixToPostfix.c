@@ -42,7 +42,7 @@ void ConvToRPNExp(char exp[])
     int len = strlen(exp), idx = 0;
     char* retExp = (char*)malloc(len + 1);
 
-    memset(retExp, 0, len + 1);
+    memset(retExp, 0, len + 1);//표현식 저장을 위한 문자열 세팅
 
     for (int i = 0; i < len; i++) {
         char tok = exp[i];
@@ -50,7 +50,7 @@ void ConvToRPNExp(char exp[])
         if (isdigit(tok)) {
             retExp[idx] = tok;
             idx++;
-        }
+        }//숫자라면 바로 넣기
         else {
             switch (tok)
             {
@@ -73,7 +73,7 @@ void ConvToRPNExp(char exp[])
                 {
                     retExp[idx] = SPop(&stack);
                     idx++;
-                }
+                }//새롭게 들어오는놈이 우선순위가 스택의 제일 마지막보다 크다면 스택안의 모든 기호 내보내고 새로 들어온 놈 저장
                 SPush(&stack, tok);
                 break;
             }
