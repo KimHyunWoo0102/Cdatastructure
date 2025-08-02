@@ -12,10 +12,14 @@
     <ClInclude Include="..\..\List\CircularLinkedList\CLinkedList.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="ListStack.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="CircularStack.c" />
     <ClCompile Include="..\..\List\CircularLinkedList\CLinkedList.c" />
+    <ClCompile Include="ListStack.c" />
   </ItemGroup>
 </Project>
