@@ -1,7 +1,7 @@
 
-#include"SelectionSort.h"
+#include"InsertionSort.h"
 int main() {
-	SelSortRun();
+	InserSortRun();
 
 	return 0;
 }

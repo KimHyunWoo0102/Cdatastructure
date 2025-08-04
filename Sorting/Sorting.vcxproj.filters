@@ -24,12 +24,18 @@
     <ClCompile Include="SelectionSort.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="InsertionSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleSort.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SelectionSort.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
