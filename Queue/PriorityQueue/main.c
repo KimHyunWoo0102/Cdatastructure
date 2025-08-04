@@ -1,9 +1,13 @@
-#include"SimpleHeap.h"
+#include"UsefulHeap.h"
 #include<stdio.h>
+
+int DataPrioritycomp(char c1, char c2) {
+	return c2 - c1;
+}
 
 int main() {
 	Heap heap;
-	HeapInit(&heap);
+	HeapInit(&heap, DataPrioritycomp);
 
 	HInsert(&heap, 'A', 1);
 	HInsert(&heap, 'b', 2);
