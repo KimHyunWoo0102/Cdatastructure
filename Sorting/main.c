@@ -1,7 +1,7 @@
-#include"BubbleSort.h"
 
+#include"SelectionSort.h"
 int main() {
-	BubbleSortRun();
+	SelSortRun();
 
 	return 0;
 }
