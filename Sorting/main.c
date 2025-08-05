@@ -1,6 +1,6 @@
-#include"HeapSort.h"
+#include"MergeSort.h"
 int main() {
-	HeapSortRun();
+	MergeSortRun();
 
 	return 0;
 }

@@ -33,6 +33,9 @@
     <ClCompile Include="..\Queue\PriorityQueue\UserfulHeap.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MergeSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BubbleSort.h">
@@ -48,6 +51,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\Queue\PriorityQueue\UsefulHeap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MergeSort.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
