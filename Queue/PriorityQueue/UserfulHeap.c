@@ -36,12 +36,12 @@ int GetHiPriChildIDX(Heap* heap, int idx) {
 	}
 }
 
-void HInsert(Heap* heap, HData data, Priority pr)
+void HInsert(Heap* heap, HData data)
 {
 	int idx = heap->numOfData + 1;
 	
 	while (idx != 1) {
-		if (heap->comp(data,heap->heapArr[GetParentIDX(idx)]>0)) {
+		if (heap->comp(data,heap->heapArr[GetParentIDX(idx)])>0) { //data의 우선순위가 부모보다 크다면
 			heap->heapArr[idx] = heap->heapArr[GetParentIDX(idx)];
 			idx = GetParentIDX(idx);
 		}
@@ -52,6 +52,7 @@ void HInsert(Heap* heap, HData data, Priority pr)
 	heap->numOfData++;
 }
 
+
 HData HDelete(Heap* heap)
 {
 	HData retData = heap->heapArr[1]; //삭제할 데이터 저장
@@ -61,7 +62,7 @@ HData HDelete(Heap* heap)
 	int childIdx;
 
 	while (childIdx = GetHiPriChildIDX(heap, parentIdx)) {
-		if (heap->comp(lastElem,heap->heapArr[childIdx]>=0))
+		if (heap->comp(lastElem,heap->heapArr[childIdx])>=0)
 			break;
 
 		heap->heapArr[parentIdx] = heap->heapArr[childIdx];

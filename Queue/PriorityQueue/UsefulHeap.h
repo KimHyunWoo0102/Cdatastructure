@@ -5,7 +5,7 @@
 
 #define HEAP_LEN	100
 
-typedef char HData;
+typedef int HData;
 typedef int Priority;
 
 typedef int (*PriorityComp)(HData d1, HData d2);
@@ -19,5 +19,5 @@ typedef struct _heap {
 void HeapInit(Heap* heap, PriorityComp pc);
 int HIsEmpty(Heap* heap);
 
-void HInsert(Heap* heap, HData data, Priority pr);
+void HInsert(Heap* heap, HData data);
 HData HDelete(Heap* heap);

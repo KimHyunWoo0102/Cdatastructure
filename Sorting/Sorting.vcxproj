@@ -123,13 +123,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Queue\PriorityQueue\UserfulHeap.c" />
     <ClCompile Include="BubbleSort.c" />
+    <ClCompile Include="HeapSort.c" />
     <ClCompile Include="InsertionSort.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="SelectionSort.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Queue\PriorityQueue\UsefulHeap.h" />
     <ClInclude Include="BubbleSort.h" />
+    <ClInclude Include="HeapSort.h" />
     <ClInclude Include="InsertionSort.h" />
     <ClInclude Include="SelectionSort.h" />
   </ItemGroup>

@@ -1,7 +1,6 @@
-
-#include"InsertionSort.h"
+#include"HeapSort.h"
 int main() {
-	InserSortRun();
+	HeapSortRun();
 
 	return 0;
 }
