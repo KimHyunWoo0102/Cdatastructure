@@ -129,6 +129,8 @@
     <ClCompile Include="InsertionSort.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="MergeSort.c" />
+    <ClCompile Include="QuickSort.c" />
+    <ClCompile Include="QuickSort.h" />
     <ClCompile Include="SelectionSort.c" />
   </ItemGroup>
   <ItemGroup>
