@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpressionTree", "Tree\Expr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sorting", "Sorting\Sorting.vcxproj", "{B52274E6-23CA-4CCB-95DC-E741FBFE8FD0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InterpolationSearch", "Search\InterpolationSearch\InterpolationSearch.vcxproj", "{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{B52274E6-23CA-4CCB-95DC-E741FBFE8FD0}.Release|x64.Build.0 = Release|x64
 		{B52274E6-23CA-4CCB-95DC-E741FBFE8FD0}.Release|x86.ActiveCfg = Release|Win32
 		{B52274E6-23CA-4CCB-95DC-E741FBFE8FD0}.Release|x86.Build.0 = Release|Win32
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Debug|x64.ActiveCfg = Debug|x64
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Debug|x64.Build.0 = Debug|x64
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Debug|x86.ActiveCfg = Debug|Win32
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Debug|x86.Build.0 = Debug|Win32
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Release|x64.ActiveCfg = Release|x64
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Release|x64.Build.0 = Release|x64
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Release|x86.ActiveCfg = Release|Win32
+		{8C1A23CA-DC78-4FC7-91FC-CD0814FF3FB1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
