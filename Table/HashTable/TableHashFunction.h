@@ -6,4 +6,4 @@ typedef struct _empInfo {
 }EmpInfo;
 
 int GetHashValue(int empNum);
-//void run();
+void run();

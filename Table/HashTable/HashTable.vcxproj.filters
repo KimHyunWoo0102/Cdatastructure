@@ -15,36 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TableHashFunction.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Person.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Slot.h">
+    <ClInclude Include="Slot2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Table.h">
+    <ClInclude Include="Table2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleHashMain.h">
+    <ClInclude Include="..\..\List\LinkedList\LinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TableHashFunction.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Person.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Table.c">
+    <ClCompile Include="Table2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleHashMain.c">
+    <ClCompile Include="..\..\List\LinkedList\LinkedList.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

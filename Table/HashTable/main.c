@@ -1,4 +1,4 @@
-#include"SimpleHashMain.h"
+#include"Table2.h"
 
 int main() {
 	run();
