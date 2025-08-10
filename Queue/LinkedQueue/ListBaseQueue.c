@@ -14,7 +14,7 @@ int QIsEmpty(Queue* pq) {
 }
 
 void Enqueue(Queue* pq, Data data) {
-	Node* newNode = (Node*)malloc(sizeof(Node));
+	NodeQ* newNode = (NodeQ*)malloc(sizeof(NodeQ));
 	newNode->data = data;
 	newNode->next = NULL;
 
@@ -34,7 +34,7 @@ Data Dequeue(Queue* pq) {
 		exit(-1);
 	}
 
-	Node* rpos = pq->front;
+	NodeQ* rpos = pq->front;
 	Data rdata = pq->front->data;
 
 	pq->front = pq->front->next;

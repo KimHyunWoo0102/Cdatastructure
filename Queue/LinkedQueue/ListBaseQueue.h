@@ -8,11 +8,11 @@ typedef int Data;
 typedef struct _nodeStack {
 	Data data;
 	struct _nodeStack* next;
-}Node;
+}NodeQ;
 
 typedef struct _lq {
-	Node* rear;
-	Node* front;
+	NodeQ* rear;
+	NodeQ* front;
 }LinkedQueue;
 
 typedef LinkedQueue Queue;
