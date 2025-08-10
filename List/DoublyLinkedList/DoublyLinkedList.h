@@ -4,10 +4,10 @@
 
 typedef int Data;
 
-typedef struct _node {
+typedef struct _nodeStack {
 	Data data;
-	struct _node* next;
-	struct _node* prev;
+	struct _nodeStack* next;
+	struct _nodeStack* prev;
 }Node;
 
 

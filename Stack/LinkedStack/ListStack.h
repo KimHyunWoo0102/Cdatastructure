@@ -6,13 +6,13 @@
 typedef struct _bTreeNode BTreeNode;
 typedef BTreeNode* Data;
 
-typedef struct _node {
+typedef struct _nodeStack {
 	Data data;
-	struct _node* next;
-}Node;
+	struct _nodeStack* next;
+}StackNode;
 
 typedef struct _listStack {
-	Node* head;
+	StackNode* head;
 }ListStack;
 
 typedef ListStack Stack;

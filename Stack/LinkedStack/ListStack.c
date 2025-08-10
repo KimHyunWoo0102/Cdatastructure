@@ -10,7 +10,7 @@ int SIsEmpty(Stack* pstack) {
 }
 
 void SPush(Stack* pstack, Data data) {
-	Node* newNode = (Node*)malloc(sizeof(Node));
+	StackNode* newNode = (StackNode*)malloc(sizeof(StackNode));
 	newNode->data = data;
 	newNode->next = pstack->head;
 
@@ -23,7 +23,7 @@ Data SPop(Stack* pstack) {
 		exit(-1);
 	}
 
-	Node* rpos = pstack->head;
+	StackNode* rpos = pstack->head;
 	Data Ldata = rpos->data;
 
 	pstack->head = rpos->next;

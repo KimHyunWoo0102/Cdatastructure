@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ALGraph.h">
+    <ClInclude Include="..\List\LinkedList\LinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="..\List\LinkedList\LinkedList.h">
+    <ClInclude Include="ALGraphDFS.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Stack\LinkedStack\ListStack.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,10 +29,13 @@
     <ClCompile Include="..\List\LinkedList\LinkedList.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ALGraphMain.c">
+    <ClCompile Include="ALGraphDFS.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ALGraph.c">
+    <ClCompile Include="DFSMain.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Stack\LinkedStack\ListStack.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

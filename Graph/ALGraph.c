@@ -1,10 +1,11 @@
 #include "ALGraph.h"
 #include<stdio.h>
 #include<stdlib.h>
+#include "ALGraphDFS.h"
 
 int WhoIsPrecede(int data1, int data2);
 
-void GraphInit(ALGragh* pg, int nv)
+void GraphInit(ALGraph* pg, int nv)
 {
 	pg->adjList = (List*)malloc(sizeof(List) * nv);
 
@@ -17,7 +18,7 @@ void GraphInit(ALGragh* pg, int nv)
 	}
 }
 
-void GraphDestroy(ALGragh* pg)
+void GraphDestroy(ALGraph* pg)
 {
     if (pg->adjList != NULL) {
         // 각 정점의 연결 리스트 메모리 해제
@@ -36,7 +37,7 @@ void GraphDestroy(ALGragh* pg)
 }
 
 
-void AddEdge(ALGragh* pg, int fromV, int toV)
+void AddEdge(ALGraph* pg, int fromV, int toV)
 {
     LInsert(&(pg->adjList[fromV]), toV);
     LInsert(&(pg->adjList[toV]), fromV);
@@ -44,7 +45,7 @@ void AddEdge(ALGragh* pg, int fromV, int toV)
     pg->numE++;
 }
 
-void ShowGraphEdgeInfo(ALGragh* pg)
+void ShowGraphEdgeInfo(ALGraph* pg)
 {
     int vx;
 
@@ -61,6 +62,7 @@ void ShowGraphEdgeInfo(ALGragh* pg)
         printf("\n");
     }
 }
+
 
 int WhoIsPrecede(int data1, int data2) {
     return data1 < data2 ? FALSE : TRUE;

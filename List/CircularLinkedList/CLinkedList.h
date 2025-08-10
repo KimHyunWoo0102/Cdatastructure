@@ -11,9 +11,9 @@ typedef int LData;
 //main에서는 List 만 가지고 연산을 진행한다.
 //헤더내에서 List를 어떤걸 쓸지 정해줄수 있음
 
-typedef struct _node {
+typedef struct _nodeStack {
 	LData data;
-	struct _node* next;
+	struct _nodeStack* next;
 }Node;
 
 typedef struct _clinkedList {

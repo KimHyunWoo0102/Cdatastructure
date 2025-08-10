@@ -5,9 +5,9 @@
 
 typedef int Data;
 
-typedef struct _node {
+typedef struct _nodeStack {
 	Data data;
-	struct _node* next;
+	struct _nodeStack* next;
 }Node;
 
 typedef struct _lq {

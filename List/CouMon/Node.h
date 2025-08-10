@@ -3,12 +3,12 @@
 typedef int Element;
 typedef char Group;
 
-typedef struct _node {
+typedef struct _nodeStack {
 	Element e;
 	Group g;
 
-	struct _node *nextElement;
-	struct _node* nextGroup;
+	struct _nodeStack *nextElement;
+	struct _nodeStack* nextGroup;
 }Node;
 
 Node* makeNode(Element e, Group g);
